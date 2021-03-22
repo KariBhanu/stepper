@@ -1,0 +1,325 @@
+
+<div class="container">
+    <mat-vertical-stepper #stepper>
+        <form [formGroup]="formGroup1">
+            <!--<mat-step label="General" [stepControl]="formGroup1" errorMessage="Require fields must be filled">-->
+               <mat-step [stepControl]="formGroup1" errorMessage="Require fields must be filled">
+                <ng-template matStepLabel><p (click)="toggleClicked()">General</p></ng-template>
+                <div *ngIf="temp">        
+                    <div class="row">
+                        <mat-form-field  class="col">
+                            <mat-label class="label">Select Report Type</mat-label>
+                            <mat-select formControlName="reports" id="reports">
+                            <mat-option *ngFor="let report of reports;let i=index" [value]="reports[i].name">
+                                {{reports[i].name}}
+                            </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="col">
+                            <mat-label class="label">Select Model Type</mat-label>
+                            <mat-select formControlName="models" id="models">
+                            <mat-option *ngFor="let model of models;let i=index" [value]="models[i].name">
+                                {{models[i].name}}
+                            </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label [className]="modelVersion!.valid? 'label':'empty'">Model version</mat-label>
+                            <input matInput formControlName="modelVersion">
+                        </mat-form-field>
+                        <mat-form-field class="col">
+                            <mat-label>Report version</mat-label>
+                            <input matInput formControlName="reportVersion">
+                        </mat-form-field>
+                        <mat-form-field class="col">
+                            <mat-label>Report Date</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="reportDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Model Developer(DS lead)</mat-label>
+                            <input matInput  formControlName="modelDeveloper" required>
+                            <div *ngIf="modelDeveloper!.invalid && modelDeveloper!.touched" >
+                                <small class="text-danger">Model Developer name is required</small><br>
+                            </div>
+                        </mat-form-field>
+                        
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Model Name</mat-label>
+                            <input matInput formControlName="modelName" required>
+                            <div *ngIf="modelName!.invalid && modelName!.touched" >
+                                <small class="text-danger">Model name is required</small><br>
+                            </div>
+                        </mat-form-field>
+                        <mat-form-field class="col">
+                            <mat-label>Model Type</mat-label>
+                            <input matInput formControlName="modelType">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Model Description</mat-label>
+                            <input matInput formControlName="modelDescription">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>GitLab Link for Documentation</mat-label>
+                            <input matInput formControlName="gitLink">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Leave a comment</mat-label>
+                            <textarea matInput placeholder="Let us know about improvements..." formControlName="comment"></textarea>
+                        </mat-form-field>
+                    </div>   
+                </div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>               
+            </mat-step>
+        
+        </form>
+        <form [formGroup]="formGroup2">
+            <mat-step label="Training Data" [stepControl]="formGroup2" errorMessage="Require fields must be filled">            
+                <div class="row">
+                    <mat-form-field  class="col">
+                        <mat-label class="label">Select Report Type</mat-label>
+                        <mat-select formControlName="reports" id="reports">
+                          <mat-option *ngFor="let report of reports;let i=index" [value]="reports[i].name">
+                              {{reports[i].name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field class="col">
+                        <mat-label class="label">Select Model Type</mat-label>
+                        <mat-select formControlName="models" id="models">
+                          <mat-option *ngFor="let model of models;let i=index" [value]="models[i].name">
+                            {{models[i].name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label [className]="modelVersion!.valid? 'label':'empty'">Model version</mat-label>
+                        <input matInput formControlName="modelVersion">
+                    </mat-form-field>
+                    <mat-form-field class="col">
+                        <mat-label>Report version</mat-label>
+                        <input matInput formControlName="reportVersion">
+                    </mat-form-field>
+                    <mat-form-field class="col">
+                        <mat-label>Report Date</mat-label>
+                        <input matInput [matDatepicker]="picker1"  formControlName="reportDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>                            
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                   
+                </div>
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Model Developer(DS lead)</mat-label>
+                        <input matInput  formControlName="modelDeveloper" required>
+                        <div *ngIf="modelDeveloper!.invalid && modelDeveloper!.touched" >
+                            <small class="text-danger">Model Developer name is required</small><br>
+                        </div>
+                    </mat-form-field>
+                    
+                </div>
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Model Name</mat-label>
+                        <input matInput formControlName="modelName" required>
+                        <div *ngIf="modelName!.invalid && modelName!.touched" >
+                            <small class="text-danger">Model name is required</small><br>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="col">
+                        <mat-label>Model Type</mat-label>
+                        <input matInput formControlName="modelType">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Model Description</mat-label>
+                        <input matInput formControlName="modelDescription">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>GitLab Link for Documentation</mat-label>
+                        <input matInput formControlName="gitLink">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Let us know about improvements..." formControlName="comment"></textarea>
+                    </mat-form-field>
+                </div> 
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>                 
+            </mat-step>
+        </form>
+            <mat-step label="Done">
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div> 
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>  
+            </mat-step>
+            <mat-step label="Mobile Metrics">
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div> 
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>  
+            </mat-step>
+            <mat-step label="Finish">
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div> 
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>  
+            </mat-step>  
+            <mat-step label="Finish">
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div> 
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>  
+            </mat-step> 
+            <form [formGroup]="formGroup2">
+                <mat-step label="Training Data" [stepControl]="formGroup2" errorMessage="Require fields must be filled">            
+                    <div class="row">
+                        <mat-form-field  class="col">
+                            <mat-label class="label">Select Report Type</mat-label>
+                            <mat-select formControlName="reports" id="reports">
+                              <mat-option *ngFor="let report of reports;let i=index" [value]="reports[i].name">
+                                  {{reports[i].name}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field class="col">
+                            <mat-label class="label">Select Model Type</mat-label>
+                            <mat-select formControlName="models" id="models">
+                              <mat-option *ngFor="let model of models;let i=index" [value]="models[i].name">
+                                {{models[i].name}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label [className]="modelVersion!.valid? 'label':'empty'">Model version</mat-label>
+                            <input matInput formControlName="modelVersion">
+                        </mat-form-field>
+                        <mat-form-field class="col">
+                            <mat-label>Report version</mat-label>
+                            <input matInput formControlName="reportVersion">
+                        </mat-form-field>
+                        <mat-form-field class="col">
+                            <mat-label>Report Date</mat-label>
+                            <input matInput [matDatepicker]="picker2"  formControlName="reportDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>                            
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
+                       
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Model Developer(DS lead)</mat-label>
+                            <input matInput  formControlName="modelDeveloper" required>
+                            <div *ngIf="modelDeveloper!.invalid && modelDeveloper!.touched" >
+                                <small class="text-danger">Model Developer name is required</small><br>
+                            </div>
+                        </mat-form-field>
+                        
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Model Name</mat-label>
+                            <input matInput formControlName="modelName" required>
+                            <div *ngIf="modelName!.invalid && modelName!.touched" >
+                                <small class="text-danger">Model name is required</small><br>
+                            </div>
+                        </mat-form-field>
+                        <mat-form-field class="col">
+                            <mat-label>Model Type</mat-label>
+                            <input matInput formControlName="modelType">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Model Description</mat-label>
+                            <input matInput formControlName="modelDescription">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>GitLab Link for Documentation</mat-label>
+                            <input matInput formControlName="gitLink">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Leave a comment</mat-label>
+                            <textarea matInput placeholder="Let us know about improvements..." formControlName="comment"></textarea>
+                        </mat-form-field>
+                    </div>  
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>                
+                </mat-step>
+            </form>    
+            <mat-step label="step8">
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div> 
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>  
+            </mat-step> 
+            <mat-step label="step 9">
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div> 
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>  
+            </mat-step>
+            <mat-step label="step 10">
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div> 
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>  
+            </mat-step>
+    </mat-vertical-stepper>     
+</div>

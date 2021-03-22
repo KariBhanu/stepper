@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*.mat-horizontal-stepper-header-container{
+  margin-bottom: 20px; 
+}
+
+.mat-horizontal-stepper-header{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: -15px;
+}
+
+.mat-step-label{
+  position: relative;
+  top: 10px;
+}
+
+.mat-stepper-horizontal-line{
+ margin: 0 -30px !important;
+}
+
+.mat-horizontal-stepper-header .mat-step-icon, .mat-horizontal-stepper-header .mat-step-icon-not-touched{
+  margin-right: 0 !important;
+}*/
+/*.mat-stepper-horizontal-line{
+  margin: 0 0px !important;
+  color:white !important;
+ }
+ .mat-horizontal-stepper-header{ 
+  padding: 0 2px !important;
+}*/
+.mat-typography p{
+  margin: 0 0 0px;
+}
