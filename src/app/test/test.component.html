@@ -107,7 +107,8 @@
       Step 8
       <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
-    </mat-step>   
+    </mat-step> 
+    <mat-step *ngFor="let i of array"><p>step {{i}}</p></mat-step>  
   </mat-horizontal-stepper>
 
 </div>

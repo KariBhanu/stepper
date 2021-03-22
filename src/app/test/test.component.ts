@@ -18,7 +18,7 @@ export class TestComponent implements OnInit {
   private myStepper!: MatStepper;
   page!:number;
   isHidden:boolean=true;
-  
+  array=[1,2,3];
   constructor() {
   }
 

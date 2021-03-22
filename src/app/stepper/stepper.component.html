@@ -2,7 +2,7 @@
 <div class="container">
     <mat-horizontal-stepper appStepperPosition="bottom" #stepper (selectionChange)="test($event)">        
         <form [formGroup]="formGroup1">
-            <mat-step label="General" [stepControl]="formGroup1" errorMessage="Require fields must be filled" [hidden]="page">                       
+            <mat-step label="General" [stepControl]="formGroup1" errorMessage="Require fields must be filled">                       
                 <div class="row">
                     <mat-form-field  class="col">
                         <mat-label class="label">Select Report Type</mat-label>
@@ -209,13 +209,13 @@
                 </div> 
                 <div>
                     <!--<button mat-button matStepperPrevious (click)="previousClose()">Back</button>-->
-                    <button mat-button matStepperPrevious (click)="previousClose()">Back</button>
+                    <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button>
                 </div>
             </mat-step> 
         <!--<div *ngIf="page">-->
         
-            <mat-step label="Step 6" [hidden]="isHidden">               
+            <mat-step label="Step 6" *ngIf="page">               
                 <div class="row">
                     <h1>Step 6</h1>
                     <mat-form-field class="col">
@@ -228,7 +228,7 @@
                     <button mat-button matStepperNext>Next</button>
                 </div>
             </mat-step> 
-            <mat-step label="Step 7" [hidden]="!page">                
+            <mat-step label="Step 7" *ngIf="page">                
                 <div class="row">
                     <h1>step 7</h1>
                     <mat-form-field class="col">
@@ -245,5 +245,5 @@
 
         <!--</div>-->
     </mat-horizontal-stepper> 
-    <button [hidden]="!page">Hello</button>  
+ 
 </div>
