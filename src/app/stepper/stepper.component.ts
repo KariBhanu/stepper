@@ -92,11 +92,11 @@ public test($event?: StepperSelectionEvent): void {
   
 
 }
-nextOpen(){
+/*nextOpen(){
   this.page=true;
   console.log("hello")
 }
 previousClose(){
   this.page=false;
-}
+}*/
 }
