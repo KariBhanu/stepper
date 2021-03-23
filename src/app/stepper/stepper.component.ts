@@ -82,15 +82,11 @@ public test($event?: StepperSelectionEvent): void {
   console.log(' $event.selectedIndex: ' + $event!.selectedIndex + "; Stepper.selectedIndex" + this.stepper.selectedIndex);
   
   if($event!.selectedIndex >= 4){
-    this.page = true;
+    this.page = true; 
   }
   else{
     this.page = false;
   }
-    
-    
-  
-
 }
 /*nextOpen(){
   this.page=true;

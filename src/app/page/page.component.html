@@ -1,0 +1,72 @@
+
+<div class="container">
+  <div [hidden]="!hide">
+    <mat-horizontal-stepper #stepper  color="primary" linear >
+    
+      <!-- Define the number of the step -->
+      <ng-template matStepperIcon="number" let-index="index">
+        {{index+1}}
+      </ng-template>
+
+      <!-- Make your steps -->
+      <mat-step label="Step 1">
+        Step 1
+      </mat-step>
+      <mat-step label="Step 2">
+        Step 2
+      </mat-step>
+      <mat-step label="Step 3">
+        Step 3
+      </mat-step>
+      <mat-step label="Step 4">
+        Step 4
+      </mat-step>
+      <mat-step label="Step 5">
+        Step 5
+        <button mat-button (click)="page.nextPage()">next</button>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  <div [hidden]="hide">
+    <mat-horizontal-stepper
+      labelPosition="bottom"
+      #stepper
+      color="primary"
+      linear
+    >
+      <!-- Define the number of the step -->
+      <ng-template matStepperIcon="number" let-index="index">
+        {{index+6}}
+      </ng-template>
+
+      <!-- Make your steps -->
+      <mat-step label="Step 6">
+        Stepper 6
+        <button mat-button (click)="page.previousPage()">Back</button>
+      </mat-step>
+      <mat-step label="Step 7">
+        Stepper 7
+      </mat-step>
+      <mat-step label="Step 8">
+        Step 8
+      </mat-step>
+      <mat-step label="Step 9">
+        Step 9
+      </mat-step>
+      <mat-step label="Step 10">
+        Step 10
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+
+<mat-paginator
+  [length]="length"
+  [pageSize]="pageSize"
+  (page)="pageChangeEvent($event)"
+  #page
+>
+</mat-paginator>
+</div>
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

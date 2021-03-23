@@ -37,3 +37,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-typography p{
   margin: 0 0 0px;
 }
+
+
+
+
+::ng-deep .mat-step-text-label [aria-selected="true"]{
+ display:none !important;
+}
+
+::ng-deep .mat-stepper-horizontal-line [hide = "true"]{
+ display:none !important;
+}
+
