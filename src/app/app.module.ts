@@ -12,6 +12,7 @@ import { VerticalStepperComponent } from './vertical-stepper/vertical-stepper.co
 import { CustomStepperComponent } from './custom-stepper/custom-stepper.component';
 import { CustomStepComponent } from './custom-stepper/custom-step/custom-step.component';
 import { TestComponent } from './test/test.component';
+import { PageComponent } from './page/page.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TestComponent } from './test/test.component';
     VerticalStepperComponent,
     CustomStepperComponent,
     CustomStepComponent,
-    TestComponent
+    TestComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,

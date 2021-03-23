@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatIconModule} from '@angular/material/icon';
 const MaterialComponents = [
   MatStepperModule,
   MatFormFieldModule,
@@ -20,7 +21,8 @@ const MaterialComponents = [
   MatButtonModule,
   MatTooltipModule,
   CdkStepperModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatIconModule
 ]
 
 @NgModule({

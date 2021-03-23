@@ -18,7 +18,7 @@ export class TestComponent implements OnInit {
   private myStepper!: MatStepper;
   page!:number;
   isHidden:boolean=true;
-  array=[1,2,3];
+  array=[1];
   constructor() {
   }
 
@@ -57,7 +57,7 @@ export class TestComponent implements OnInit {
   public test($event: StepperSelectionEvent): void {
     //this.page+=1;
     console.log(' $event.selectedIndex: ' + $event!.selectedIndex + "; Stepper.selectedIndex" + this.myStepper.selectedIndex);
-    console.log( " page no:" + this.page );
+    //console.log( " page no:" + this.page );
     //this.page+=1;
     /*if($event!.selectedIndex > this.myStepper.selectedIndex){
     this.page+=1;}
