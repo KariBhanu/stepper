@@ -45,6 +45,6 @@
 </div>
 
 <div class="action-buttons">
-  <button mat-button (click)="goBack()">Back</button>
-  <button mat-button (click)="goForward()">Save and Continue</button>
+  <button mat-button (click)="goBack()" *ngIf="step > 0">Back</button>
+  <button mat-button (click)="goForward()" *ngIf="step < totalSteps - 1">Save and Continue</button>
 </div>

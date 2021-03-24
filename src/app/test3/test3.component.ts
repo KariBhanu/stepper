@@ -35,11 +35,11 @@ export class Test3Component implements OnInit, AfterViewInit {
       } else {
         this.page--;
       }
-      this.changeMinMaxSteps();
+      this.changeMinMaxSteps(isForward);
     }
   }
 
-  changeMinMaxSteps() {
+  changeMinMaxSteps(isForward = true) {
     const pageMultiple = this.page * this.MAX_STEP;
 
     // maxStepAllowed will be lesser value between minStep + MAX_STEP and total steps
@@ -51,7 +51,17 @@ export class Test3Component implements OnInit, AfterViewInit {
       this.maxStepAllowed = this.totalSteps - 1;
       this.minStepAllowed = this.maxStepAllowed - this.MAX_STEP + 1;
     }
-    console.log(`step: ${this.step + 1}, minStepAllowed: ${this.minStepAllowed + 1}, maxStepAllowed: ${this.maxStepAllowed + 1}`);
+    
+    if (this.step < this.minStepAllowed || this.step > this.maxStepAllowed) {
+      if (isForward) {
+        this.step = this.minStepAllowed;
+      } else {
+        this.step = this.maxStepAllowed;
+      }
+      this.myStepper.selectedIndex = this.step;
+    }
+
+    console.log(`page: ${this.page + 1}, step: ${this.step + 1}, minStepAllowed: ${this.minStepAllowed + 1}, maxStepAllowed: ${this.maxStepAllowed + 1}`);
     this.rerender();
   }
 
@@ -73,12 +83,12 @@ export class Test3Component implements OnInit, AfterViewInit {
 
   paginatorNext() {
     this.page++;
-    this.changeMinMaxSteps();
+    this.changeMinMaxSteps(true);
   }
 
   paginatorBack() {
     this.page--;
-    this.changeMinMaxSteps();
+    this.changeMinMaxSteps(false);
   }
 
   private rerender() {
