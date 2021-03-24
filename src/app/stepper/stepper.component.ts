@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {StepperSelectionEvent, STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 @Component({
@@ -21,7 +21,7 @@ export class StepperComponent implements OnInit {
   
   //error:boolean = false;
   date = new Date();
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.formGroup1 = this._formBuilder.group({

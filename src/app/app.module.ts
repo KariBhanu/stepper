@@ -11,8 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { VerticalStepperComponent } from './vertical-stepper/vertical-stepper.component';
 import { CustomStepperComponent } from './custom-stepper/custom-stepper.component';
 import { CustomStepComponent } from './custom-stepper/custom-step/custom-step.component';
-import { TestComponent } from './test/test.component';
 import { PageComponent } from './page/page.component';
+import { TestComponent } from './test/test.component';
+import { Test2Component } from './test2/test2.component';
+import { Test3Component } from './test3/test3.component';
 
 
 @NgModule({
@@ -23,8 +25,10 @@ import { PageComponent } from './page/page.component';
     VerticalStepperComponent,
     CustomStepperComponent,
     CustomStepComponent,
+    PageComponent,
     TestComponent,
-    PageComponent
+    Test2Component,
+    Test3Component
   ],
   imports: [
     BrowserModule,

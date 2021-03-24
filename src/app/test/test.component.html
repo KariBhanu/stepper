@@ -63,59 +63,49 @@
   </mat-horizontal-stepper> 
 </div>-->
 <div class="solution">
+  <div class="arrow-icons">
+    <button mat-icon-button (click)="goBack()" *ngIf="step > 0">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
 
+  <div class="stepper">
+    <mat-horizontal-stepper #stepper (selectionChange)="stepSelectionChange($event)">
+      <mat-step label="step1">
+        Step 1
+      </mat-step>
+      <mat-step label="step2">
+        Step 2
+          <input matInput placeholder="Address" required>
+      </mat-step>
+      <mat-step label="step3">
+        Step 3
+      </mat-step>
+      <mat-step label="step4">
+        Step 4
+      </mat-step>
+      <mat-step label="step5">
+        Step 5
+      </mat-step>
+      <mat-step label="step6">
+        Step 6
+          <input matInput placeholder="Address" required>
+      </mat-step>
+      <mat-step label="step7">
+        Step 7
+      </mat-step>
+      <mat-step label="step8">
+        Step 8
+      </mat-step> 
+      <!-- <mat-step *ngFor="let i of array"><p>step {{i}}</p></mat-step>   -->
+    </mat-horizontal-stepper>
+  </div>
 
-  <mat-horizontal-stepper #stepper (selectionChange)="test($event)">
-     
-    <mat-step *ngIf="isHidden" label="step1">
-      Step 1
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
-    </mat-step>
-    <mat-step *ngIf="isHidden" label="step2">
-      Step 2
-        <input matInput placeholder="Address" required>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-    </mat-step>
-    <mat-step *ngIf="isHidden" label="step3">
-      Step 3
-      <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-    </mat-step>
-    <mat-step *ngIf="isHidden" label="step4">
-      Step 4
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="testFun(stepper)">Next</button>
-    </mat-step>
-   
-    <mat-step *ngIf="!isHidden" label="step5">
-      Step 5
-      <button mat-button (click)="testFun2(stepper)">Back</button>
-        <button mat-button matStepperNext>Next</button>
-    </mat-step>
-   
-    <mat-step *ngIf="!isHidden" label="step6">
-      Step 6
-        <input matInput placeholder="Address" required>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-    </mat-step>
-    <mat-step *ngIf="!isHidden" label="step7">
-      Step 7
-      <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-    </mat-step>
-    <mat-step *ngIf="!isHidden" label="step8">
-      Step 8
-      <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-    </mat-step> 
-    <!--<mat-step *ngFor="let i of array"><p>step {{i}}</p> <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button></mat-step> 
-      
-      -->
-  </mat-horizontal-stepper>
+  <div class="arrow-icons">
+    <button mat-icon-button (click)="goForward()" *ngIf="step < totalSteps - 1">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
 
 </div>
 

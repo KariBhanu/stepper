@@ -13,3 +13,7 @@
   height: 72px;
   align-items: center;
 }
+
+.action-buttons {
+  margin-left: 4rem;
+}
