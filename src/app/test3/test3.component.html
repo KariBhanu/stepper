@@ -1,0 +1,50 @@
+<div class="solution">
+  <div class="arrow-icons">
+    <button mat-icon-button (click)="paginatorBack()" *ngIf="page > 0">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
+
+  <div class="stepper">
+    <mat-horizontal-stepper #stepper (selectionChange)="stepSelectionChange($event)">
+      <mat-step label="step1">
+        Step 1
+      </mat-step>
+      <mat-step label="step2">
+        Step 2
+          <input matInput placeholder="Address" required>
+      </mat-step>
+      <mat-step label="step3">
+        Step 3
+      </mat-step>
+      <mat-step label="step4">
+        Step 4
+      </mat-step>
+      <mat-step label="step5">
+        Step 5
+      </mat-step>
+      <mat-step label="step6">
+        Step 6
+          <input matInput placeholder="Address" required>
+      </mat-step>
+      <mat-step label="step7">
+        Step 7
+      </mat-step>
+      <mat-step label="step8">
+        Step 8
+      </mat-step> 
+      <!-- <mat-step *ngFor="let i of array"><p>step {{i}}</p></mat-step>   -->
+    </mat-horizontal-stepper>
+  </div>
+
+  <div class="arrow-icons">
+    <button mat-icon-button (click)="paginatorNext()" *ngIf="page < totalPages - 1">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="action-buttons">
+  <button mat-button (click)="goBack()" *ngIf="step > 0">Back</button>
+  <button mat-button (click)="goForward()" *ngIf="step < totalSteps - 1">Save and Continue</button>
+</div>
