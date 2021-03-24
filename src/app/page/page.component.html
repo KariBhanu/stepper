@@ -1,7 +1,7 @@
 
 <div class="container">
   <div [hidden]="!hide">
-    <mat-horizontal-stepper #stepper  color="primary" linear >
+    <mat-horizontal-stepper #stepper  color="primary" linear (selectionChange)="test($event)">
     
       <!-- Define the number of the step -->
       <ng-template matStepperIcon="number" let-index="index">
@@ -63,6 +63,7 @@
   [length]="length"
   [pageSize]="pageSize"
   (page)="pageChangeEvent($event)"
+  [disabled]="disabled"
   #page
 >
 </mat-paginator>

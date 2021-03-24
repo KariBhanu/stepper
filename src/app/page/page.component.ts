@@ -1,3 +1,4 @@
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
 import { MatPaginator, PageEvent } from "@angular/material/paginator";
 
@@ -16,6 +17,7 @@ export class PageComponent implements OnInit {
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10];
   hide = true;
+  disabled = true;
   // MatPaginator Output
  // pageEvent: PageEvent;
 
@@ -29,5 +31,13 @@ export class PageComponent implements OnInit {
         .map(str => +str);
     }
   }
-
+  public test($event?: StepperSelectionEvent): void {
+       
+    if($event!.selectedIndex == 4){
+      this.disabled = false; 
+    }
+    else{
+      //this.disabled = false;
+    }
+  }
 }
